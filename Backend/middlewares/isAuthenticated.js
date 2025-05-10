@@ -15,7 +15,7 @@ exports.isAuthenticated = async (req, res, next) => {
       }
       req.user = user;
       console.log('TOKEN:', token);
-console.log('SECRET:', process.env.JWT_SECRET);
+      console.log('SECRET:', process.env.JWT_SECRET);
 
       next();
     } catch (err) {

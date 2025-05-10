@@ -143,7 +143,7 @@ exports.history = async(req,res)=>{
 
 exports.logout = async(req,res)=>{
     try {
-        return res.cookie("cookie","",{maxAge:0}).json({message:`Logged out successfully`, success: true});
+        return res.cookie("token","",{maxAge:0}).json({message:`Logged out successfully`, success: true});
     } catch (error) {
         console.log(error);    
     }
