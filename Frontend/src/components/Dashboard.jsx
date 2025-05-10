@@ -29,7 +29,7 @@ function Dashboard() {
                 <div style={{ width: '100%', height: '600px', position: 'absolute' }}>
                 <Particles
                     particleColors={['#ffffff', '#ffffff']}
-                    particleCount={100}
+                    particleCount={200}
                     particleSpread={10}
                     speed={0.1}
                     particleBaseSize={100}
