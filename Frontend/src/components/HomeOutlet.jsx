@@ -5,7 +5,7 @@ import {SidebarProvider} from './ui/sidebar'
 
 function HomeOutlet() {
   return (
-    <div className='flex items-center'>
+    <div className='flex'>
       <SidebarProvider>
         <SidebarCompo/>
         <Outlet/>

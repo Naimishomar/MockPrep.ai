@@ -17,7 +17,7 @@ const NCard = ({ data }) => {
   return (
     <div className="ncard-container">
       <div className={`ncard-background ${expandedIndex !== null ? 'blurred' : ''}`}>
-        <div className="flex flex-wrap justify-evenly">
+        <div className="flex flex-wrap justify-evenly gap-x-4">
           {data.map((element, index) => (
             <div className="col-md-3" key={element.url}>
               <NCardItem

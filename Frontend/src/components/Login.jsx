@@ -20,16 +20,13 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify({
           username: Username,
           password: Password,
         }),
       });
-      const data = await response.json();
-      // const result = {
-      //   userDetails: data.userDetails
-      // }
-      // const user = data.userDetails;
+      const data = await response.json(); 
       const token = data.token;
       if (data.success) {
         console.log(token);

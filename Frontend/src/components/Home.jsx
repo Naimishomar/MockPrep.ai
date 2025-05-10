@@ -55,11 +55,11 @@ function Home() {
         />
       ):(
         <>
-        <div className='px-4'>
+        <div className='px-4 flex flex-col justify-center items-center'>
           <i class="ri-bar-chart-box-ai-line text-5xl absolute rotate-12 text-blue-400 top-45 left-60 iconMove"></i>
           <i class="ri-presentation-fill text-5xl absolute rotate-12 text-pink-400 top-25 right-30 iconMove"></i>
           <i class="ri-chat-voice-ai-fill text-5xl absolute rotate-12 text-yellow-400 bottom-25 right-60 iconMove"></i>
-          <div className='bg-white/15 p-4 my-2 rounded-xl w-full text-white/80'>
+          <div className='bg-white/15 p-6 rounded-xl w-full text-white/80'>
             <h1 className='text-3xl font-semibold text-center text-white'>General Instructions:</h1>
             <p className='my-2'><span className='font-semibold text-red-500'>1.Check Internet & Devices:</span> <br />Ensure your internet connection is stable and your mic, camera, and speakers are working.</p>
             <p><span className='font-semibold text-red-500'>2.Mute When Not Speaking</span> <br />Keep your microphone muted unless you're speaking to avoid background noise.</p>

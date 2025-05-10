@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import NCard from './NCard.jsx';
+// 1ced49a38e764f3481dfc8a45871535c
 
 const Newsapp = () => {
-  const API_KEY = "1ced49a38e764f3481dfc8a45871535c"; 
+  const API_KEY = "067df7392f654740830a87b2c24b0cd3"; 
   const [search, setSearch] = useState("india");
   const [newsData, setNewsData] = useState(null);
 

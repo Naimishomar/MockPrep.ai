@@ -51,7 +51,7 @@ function SidebarCompo() {
   return (
     <Sidebar className='mt-20 h-screen'>
       <SidebarContent className='bg-black text-white flex flex-col justify-between h-full'>
-        <div>
+        <div className="mt-5">
           <SidebarGroup>
             <SidebarGroupLabel className='text-white/40'>Dashboard</SidebarGroupLabel>
             <SidebarGroupContent>

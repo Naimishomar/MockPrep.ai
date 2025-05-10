@@ -27,18 +27,22 @@ body{
     }
 }
 
-.iconMove{
-    animation: iconMove 3s infinite linear;
+.iconMove {
+    animation: iconMove 5s infinite ease-in-out;
 }
 
 @keyframes iconMove {
-    0%{
+    0% {
         transform: translateY(30%);
     }
-    100%{
+    50% {
         transform: translateY(-10%);
     }
+    100% {
+        transform: translateY(30%);
+    }
 }
+
 
 .App {
     text-align: center;
