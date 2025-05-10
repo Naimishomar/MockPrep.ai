@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import noimg from '../assets/image-removebg-preview.png';
+import noimg from '/image-removebg-preview.png';
 import NCardItem from './NCardItem';
 import './style/Ncard.css';
 

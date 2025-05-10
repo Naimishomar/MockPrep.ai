@@ -24,8 +24,8 @@ function Dashboard() {
 
   return (
         <>
-        <motion.div className='h-screen w-full bg-black/70 mt-20 relative animate' initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} viewport={{ once: false, amount: 0.2 }}>
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/038/003/419/small/gray-abstract-fog-realistic-smoke-overlay-black-sky-textured-on-black-photo.jpg" className='w-full h-full object-cover absolute top-0 left-0' alt="" />
+        <motion.div className='h-screen w-full bg-black/70 relative animate flex flex-col justify-center items-center' initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} viewport={{ once: false, amount: 0.2 }}>
+                {/* <img src="https://static.vecteezy.com/system/resources/thumbnails/038/003/419/small/gray-abstract-fog-realistic-smoke-overlay-black-sky-textured-on-black-photo.jpg" className='w-full h-full object-cover absolute top-0 left-0' alt="" /> */}
                 <div style={{ width: '100%', height: '600px', position: 'absolute' }}>
                 <Particles
                     particleColors={['#ffffff', '#ffffff']}
@@ -40,16 +40,16 @@ function Dashboard() {
                 </div>
                 <i className="ri-bar-chart-box-ai-line text-5xl absolute rotate-12 text-blue-400 top-45 left-30 iconMove"></i>
                 <i class="ri-presentation-fill text-5xl absolute rotate-12 text-pink-400 top-15 right-30 iconMove"></i>
-                <i class="ri-chat-voice-ai-fill text-5xl absolute rotate-12 text-yellow-400 bottom-35 right-60 iconMove"></i>
+                <i class="ri-chat-voice-ai-fill text-5xl absolute rotate-12 text-yellow-400 bottom-35 right-40 iconMove"></i>
                 <div className="group text-center pt-30 cursor-pointer">
-                    <div className="text-7xl font-bold bg-gradient-to-bl from-[#ffffff] via-[#c0c0c0] to-[#000000] bg-clip-text text-transparent whitespace-nowrap transition-all duration-200 animate-pulse">
+                    <div className="text-8xl font-bold bg-gradient-to-bl from-[#ffffff] via-[#c0c0c0] to-[#000000] bg-clip-text text-transparent whitespace-nowrap transition-all duration-200 animate-pulse">
                     {heading}</div>
                 </div>
                 <div className='flex justify-center'>
                 <div className='w-200 flex flex-col overflow-hidden'>
                     <div className='flex mt-8 whitespace-nowrap relative'>
-                        <div className='w-10 h-10 bg-gradient-to-r from-[#D0D0D0] via-[#d4d4d4] to-transparent absolute left-0 z-20'></div>
-                        <div className='w-20 h-10 bg-gradient-to-r from-transparent via-[#111111] to-[#0c0c0c] absolute right-0 z-20'></div>
+                        <div className='w-10 h-10 bg-gradient-to-r from-[#000000] via-[#111111] to-transparent absolute left-0 z-20'></div>
+                        <div className='w-20 h-10 bg-gradient-to-r from-transparent via-[#111111] to-[#000000] absolute right-0 z-20'></div>
                         <div className='flex slideRight gap-4'>
                             <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
                             <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
@@ -73,8 +73,8 @@ function Dashboard() {
                         </div>
                     </div>
                     <div className='flex mt-5 whitespace-nowrap relative'>
-                        <div className='w-10 h-10 bg-gradient-to-r from-[#CCCCCC] via-[#d4d4d4] to-transparent absolute left-0 z-20'></div>
-                        <div className='w-20 h-10 bg-gradient-to-r from-transparent via-[#131313] to-[#0c0c0c] absolute right-0 z-20'></div>
+                        <div className='w-10 h-10 bg-gradient-to-r from-[#000000] via-[#111111] to-transparent absolute left-0 z-20'></div>
+                        <div className='w-20 h-10 bg-gradient-to-r from-transparent via-[#111111] to-[#000000]  absolute right-0 z-20'></div>
                         <div className='flex slideLeft gap-4'>
                             <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
                             <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
@@ -99,7 +99,7 @@ function Dashboard() {
                     </div>
                 </div>
                 </div>
-                <i class="ri-mouse-line absolute text-5xl left-[50%] bottom-20 translate-[-50%] cursor-pointer iconMove"></i>
+                <i class="ri-mouse-line absolute text-5xl left-[50%] bottom-0 translate-[-50%] cursor-pointer iconMove"></i>
         </motion.div>
 
         <hr className='border-white/10' />
