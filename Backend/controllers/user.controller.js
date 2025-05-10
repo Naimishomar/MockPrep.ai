@@ -5,6 +5,7 @@ require('dotenv').config()
 const {customAlphabet} = require('nanoid');
 const {sendMail} = require('../controllers/verification.controller.js');
 const History = require('../models/history.model.js');
+const { OAuth2Client } = require('google-auth-library');
 
 const otpStore = {};
 exports.userRegister = async (req, res) => {
@@ -86,6 +87,29 @@ exports.userLogin = async(req,res)=>{
         console.log(error);  
     }
 }
+
+exports.googleLogin = async(req,res)=>{
+  try {
+    const CLIENT_ID = process.env.GOOGLE_OUTH_CLIENT_ID;
+    const client = new OAuth2Client(CLIENT_ID);
+    const { token } = req.body;
+    const ticket = await client.verifyIdToken({
+    idToken: token,
+    audience: CLIENT_ID,
+    });
+    const payload = ticket.getPayload();
+    const { email, name, picture, sub: googleId } = payload;
+    res.status(200).json({message:"Valid token", success: true, email, name, picture, googleId });
+  } catch (error) {
+    console.log(error);
+    res.status(401).json({ success: false, message: 'Invalid token' });
+  }
+}
+
+exports.verified = async (req, res) => {
+  console.log("verified");
+  res.status(200).json({ success: true, message: "Token verified" });
+};
 
 exports.getProfile = async (req, res) => {
   try {
