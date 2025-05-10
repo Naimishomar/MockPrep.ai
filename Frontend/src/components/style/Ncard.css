@@ -1,0 +1,71 @@
+  .ncard-container {
+    position: relative; 
+    margin: 50px; 
+  }
+  
+  .ncard-background {
+    transition: filter 0.3s ease-in-out; 
+  }
+  
+  .ncard-background.blurred {
+    filter: blur(5px);
+    pointer-events: none; 
+    user-select: none;
+  }
+  
+  .expanded-card-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; 
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 40%; 
+    max-height: 70vh;
+    overflow-y: auto; 
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+  }
+  
+  .expanded-card-overlay > * {
+    width: 100%; 
+  }
+  
+  .expanded-card-overlay .card-item-container {
+    margin: 0; 
+    width: 100%; 
+  }
+  
+  .expanded-card-overlay .card-modern {
+    width: 100%; 
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .expanded-card-overlay .image-container {
+    width: 100%;
+  }
+  
+  .expanded-card-overlay .card-img-top {
+    width: 100%;
+    height: auto; 
+    max-height: none; 
+  }
+  
+  .expanded-card-overlay .card-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+  }
+  
+  .expanded-card-overlay .card-footer-info {
+    width: 100%; 
+  }
+  
+  .expanded-card-overlay .read-less-btn {
+    align-self: flex-start;
+  }

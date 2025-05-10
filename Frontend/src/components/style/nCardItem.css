@@ -1,0 +1,150 @@
+.card-item-container {
+    perspective: 1000px; 
+  }
+  
+  .card-modern {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden; 
+  }
+  
+  .card-modern:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-container {
+    position: relative;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover; 
+    max-height: 200px; 
+  }
+  
+  .source-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    font-size: 0.8rem;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+  }
+  
+  .card-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  
+  .card-footer-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: #777;
+  }
+  
+  .read-more-btn {
+    align-self: flex-start;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  
+  .read-more-btn:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+
+ 
+  .limited-description {
+    font-size: 0.95rem; 
+    line-height: 1.5;
+    color: #777;
+    margin-bottom: 0.5rem; 
+   
+  }
+  
+  /* .full-description {
+    margin-top: 1rem;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+   */
+   .full-description {
+    margin-top: 1rem;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    /* white-space: pre-wrap; */
+    /* word-break: break-word;  */
+  }
+  .original-article-btn {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  
+  .original-article-btn:hover {
+    background-color: #6c757d;
+    color: white;
+    border-color: #6c757d;
+  }
+
+  
+  .read-less-btn {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  
+  .read-less-btn:hover {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+  }
+
+  /* ... existing styles ... */
+
+.card-item-container.expanded-overlay-item {
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+  }
+  
+  /* Styles for the 'Read Less' button */
+  .read-less-btn {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  
+  .read-less-btn:hover {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+  }
