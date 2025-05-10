@@ -1,44 +1,74 @@
-import './App.css'
-import {createBrowserRouter,createRoutesFromElements,Route,RouterProvider} from "react-router-dom";
+import './App.css';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { useEffect } from 'react';
 import Layout from './components/Layout';
 import Dashboard from './components/Dashboard';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Home from './components/Home';
-import { Toaster } from "sonner";
 import Resume from './components/Resume';
 import News from './components/News';
 import SubscriptionPlans from './components/Subscription';
 import Profile from './components/Profile';
 import HomeOutlet from './components/HomeOutlet';
+import { Toaster } from "sonner";
 
+// ✅ Auth Redirect Logic for "/"
+function AuthRedirect() {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-const router = createBrowserRouter( 
-  createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route path="/" element={<Dashboard/>} />
-      <Route path="/signup" element={<Signup/>} />
-      <Route path='/login' element={<Login/>} />
-      <Route path='/dashboard' element={<HomeOutlet/>}>
-        <Route index element={<Home/>} /> 
-        <Route path='interview' element={<Home/>}/>
-        <Route path='profile' element={<Profile/>}/>
-      </Route>
-      <Route path='/resume' element={<Resume/>} />
-      <Route path='/news' element={<News/>} />
-      <Route path='/subscription' element={<SubscriptionPlans/>}/>
-      <Route path='/profile' element={<Profile/>} />
-    </Route>
-  )
-);
+  useEffect(() => {
+    if (location.pathname === "/") {
+      const checkAuth = async () => {
+        try {
+          const res = await fetch("http://localhost:8000/verify", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+          });
+          const data = await res.json();
+          console.log(data);
+          if (data.success) {
+            navigate("/dashboard");
+          }
+        } catch (err) {
+          console.error("Verification failed", err);
+        }
+      };
+
+      checkAuth();
+    }
+  }, [location, navigate]);
+
+  return null;
+}
 
 function App() {
   return (
-    <>
-      <RouterProvider router={router} />
-      <Toaster/>
-    </>
-  )
+    <BrowserRouter>
+      <AuthRedirect />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<HomeOutlet />}>
+            <Route index element={<Home />} />
+            <Route path="interview" element={<Home />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/subscription" element={<SubscriptionPlans />} />
+          <Route path="/profile" element={<Profile />} />
+        </Route>
+      </Routes>
+      <Toaster />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

@@ -56,10 +56,11 @@ function SidebarCompo() {
         },
         credentials: "include",
       });
-      const result = response.json;
-      toast.success(result.message);
-      console.log("Logout successfully");
-      navigate('/login');
+      const result = await response.json();
+      if(result.success){
+        toast.success(result.message);
+        navigate('/login');
+      }
     } catch (error) {
       console.log(error);
     }
@@ -91,7 +92,7 @@ function SidebarCompo() {
         <div className="mb-20">
           <SidebarMenu>
             <SidebarMenuItem className='py-1'>
-              <SidebarMenuButton asChild className='py-6 px-3 bg-red-500 hover:bg-red-600 hover:text-white rounded-none'>
+              <SidebarMenuButton asChild className='py-6 px-3 bg-red-500 hover:bg-red-600 hover:text-white rounded-none cursor-pointer'>
                 <button onClick={logout}>
                   <logoutItem.icon />
                   <span>{logoutItem.title}</span>
