@@ -9,7 +9,6 @@ import { auth, provider } from "../firebase/firebase.js";
 
 function Login() {
   const [Username, setUsername] = useState("");
-  const [ContactNumber, setContactNumber] = useState("");
   const [Password, setPassword] = useState("");
   const navigate = useNavigate();
 
@@ -23,7 +22,6 @@ function Login() {
         },
         body: JSON.stringify({
           username: Username,
-          contactNumber: ContactNumber,
           password: Password,
         }),
       });
@@ -72,42 +70,34 @@ function Login() {
         <h1 className="text-center text-2xl font-semibold m-5 text-white/80 ">
           Login
         </h1>
-        <div className="grid w-full max-w-sm items-center gap-1.5 my-3">
-          <Label className="text-red-400">Username</Label>
-          <Input
-            type="text"
-            placeholder="Username"
-            className="h-12"
-            value={Username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div className="grid w-full max-w-sm items-center gap-1.5 my-3">
-          <Label className="text-purple-400">Contact Number</Label>
-          <Input
-            type="text"
-            placeholder="Contact number"
-            className="h-12"
-            value={ContactNumber}
-            onChange={(e) => setContactNumber(e.target.value)}
-          />
-        </div>
-        <div className="grid w-full max-w-sm items-center gap-1.5">
-          <Label className="text-yellow-400">Password</Label>
-          <Input
-            type="password"
-            placeholder="Password"
-            className="h-12"
-            value={Password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <Button
-          className="w-full text-center mt-3 px-7 py-5 bg-blue-400 hover:bg-blue-500 cursor-pointer"
-          onClick={userLogin}
-        >
-          Login
-        </Button>
+        <form onSubmit={userLogin}>
+          <div className="grid w-full max-w-sm items-center gap-1.5 my-3">
+            <Label className="text-red-400">Username</Label>
+            <Input
+              type="text"
+              placeholder="Username"
+              className="h-12"
+              value={Username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="grid w-full max-w-sm items-center gap-1.5">
+            <Label className="text-yellow-400">Password</Label>
+            <Input
+              type="password"
+              placeholder="Password"
+              className="h-12"
+              value={Password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <Button
+            type="submit"
+            className="w-full text-center mt-3 px-7 py-5 bg-blue-400 hover:bg-blue-500 cursor-pointer"
+          >
+            Login
+          </Button>
+        </form>
         <p className="text-center my-3">OR</p>
         <Button
           className="w-full py-5 px-7 bg-white hover:bg-white/80 text-black cursor-pointer"

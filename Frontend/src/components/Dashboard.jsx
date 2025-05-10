@@ -20,12 +20,9 @@ function Dashboard() {
         setHeading(headingText[index]);
     }, [index]);
 
-    // https://static.vecteezy.com/system/resources/thumbnails/038/003/419/small/gray-abstract-fog-realistic-smoke-overlay-black-sky-textured-on-black-photo.jpg
-
   return (
         <>
         <motion.div className='h-screen w-full bg-black/70 relative animate flex flex-col justify-center items-center' initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} viewport={{ once: false, amount: 0.2 }}>
-                {/* <img src="https://static.vecteezy.com/system/resources/thumbnails/038/003/419/small/gray-abstract-fog-realistic-smoke-overlay-black-sky-textured-on-black-photo.jpg" className='w-full h-full object-cover absolute top-0 left-0' alt="" /> */}
                 <div style={{ width: '100%', height: '600px', position: 'absolute' }}>
                 <Particles
                     particleColors={['#ffffff', '#ffffff']}

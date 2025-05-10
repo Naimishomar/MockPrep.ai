@@ -75,7 +75,7 @@ function SidebarCompo() {
         <div className="mb-20">
           <SidebarMenu>
             <SidebarMenuItem className='py-1'>
-              <SidebarMenuButton asChild className='py-6 px-3 bg-red-500 hover:bg-red-600 hover:text-white'>
+              <SidebarMenuButton asChild className='py-6 px-3 bg-red-500 hover:bg-red-600 hover:text-white rounded-none'>
                 <Link to={logoutItem.send}>
                   <logoutItem.icon />
                   <span>{logoutItem.title}</span>
