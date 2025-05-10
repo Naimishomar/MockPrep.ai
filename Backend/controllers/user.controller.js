@@ -57,12 +57,12 @@ exports.userRegister = async (req, res) => {
 
 exports.userLogin = async(req,res)=>{
     try {
-        const {username, contactNumber, password} = req.body;
-        if(!username || !contactNumber || !password){
+        const {username, password} = req.body;
+        if(!username || !password){
             return res.status(401).json({message: 'All fields are required', success: false});
         }
         else{
-            const user = await User.findOne({$or:[{username},{contactNumber}]});
+            const user = await User.findOne({username});
             if(!user){
                 return res.status(401).json({message: 'No account found with this email', success: false});
             }
