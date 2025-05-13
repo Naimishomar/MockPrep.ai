@@ -4,8 +4,9 @@ import { Label } from "@/components/ui/label";
 import { Button } from "./ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { signInWithPopup } from "firebase/auth";
-import { auth, provider } from "../firebase/firebase.js";
+// import { signInWithPopup } from "firebase/auth";
+// import { auth, provider } from "../firebase/firebase.js";
+import { GoogleLogin } from '@react-oauth/google';
 
 function Login() {
   const [Username, setUsername] = useState("");
@@ -39,16 +40,34 @@ function Login() {
     }
   };
 
-  const handleGoogleLogin = async () => {
+  // const handleGoogleLogin = async () => {
+  //   try {
+  //     const result = await signInWithPopup(auth, provider);
+  //     const user = result.user;
+  //     console.log("User Info:", user);
+  //     navigate("/dashboard", { state: user.email });
+  //   } catch (error) {
+  //     console.error("Google Sign-In Error", error);
+  //   }
+  // };
+
+  const handleGoogleLogin = async(credentialResponse)=>{
     try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      console.log("User Info:", user);
-      navigate("/dashboard", { state: user.email });
+      const token = credentialResponse.credential;
+      const response = await fetch('http://localhost:8000/google/verify',{
+        method: "POST",
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        credentials: "include",
+        token
+      }); 
+      console.log(response.data);
     } catch (error) {
-      console.error("Google Sign-In Error", error);
+      console.log(error);
+      toast.error();
     }
-  };
+  }
 
   return (
     <div className="mt-20 w-full h-fit py-10 bg-black/80 flex justify-center items-center">

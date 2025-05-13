@@ -1,6 +1,6 @@
 import { Calendar, Home, Search, Settings, User, History, LogOut, Antenna, icons } from "lucide-react"
-import { Link } from "react-router-dom"
-
+import { Link, useNavigate } from "react-router-dom"
+import { toast } from "sonner";
 import {
   Sidebar,
   SidebarContent,
@@ -40,14 +40,31 @@ const items = [
   }
 ]
 
-// Logout item
 const logoutItem = {
   title: "Logout",
   icon: LogOut,
-  send: 'logout' // or you can handle this with a handler instead of a route
 }
 
 function SidebarCompo() {
+  const navigate = useNavigate();
+  const logout = async()=>{
+    try {
+      const response = await fetch('http://localhost:8000/logout',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+      const result = await response.json();
+      if(result.success){
+        toast.success(result.message);
+        navigate('/login');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <Sidebar className='mt-20 h-screen'>
       <SidebarContent className='bg-black text-white flex flex-col justify-between h-full'>
@@ -75,11 +92,11 @@ function SidebarCompo() {
         <div className="mb-20">
           <SidebarMenu>
             <SidebarMenuItem className='py-1'>
-              <SidebarMenuButton asChild className='py-6 px-3 bg-red-500 hover:bg-red-600 hover:text-white rounded-none'>
-                <Link to={logoutItem.send}>
+              <SidebarMenuButton asChild className='py-6 px-3 bg-red-500 hover:bg-red-600 hover:text-white rounded-none cursor-pointer'>
+                <button onClick={logout}>
                   <logoutItem.icon />
                   <span>{logoutItem.title}</span>
-                </Link>
+                </button>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>

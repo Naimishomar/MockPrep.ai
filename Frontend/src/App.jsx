@@ -1,6 +1,9 @@
 import './App.css';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from 'react';
+import './App.css';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { useEffect } from 'react';
 import Layout from './components/Layout';
 import Dashboard from './components/Dashboard';
 import Signup from './components/Signup';
@@ -57,6 +60,27 @@ function AuthRedirect() {
 
 function App() {
   return (
+    <BrowserRouter>
+      <AuthRedirect />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<HomeOutlet />}>
+            <Route index element={<Home />} />
+            <Route path="interview" element={<Home />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/subscription" element={<SubscriptionPlans />} />
+          <Route path="/profile" element={<Profile />} />
+        </Route>
+      </Routes>
+      <Toaster />
+    </BrowserRouter>
+  );
     <BrowserRouter>
       <AuthRedirect />
       <Routes>
