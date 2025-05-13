@@ -162,6 +162,7 @@ function Interview({ skill, experience, resume, duration }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ contents }),
+      include: "credentials"
     });
 
     const data = await response.json();
