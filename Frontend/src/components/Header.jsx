@@ -23,12 +23,6 @@ function Header() {
 
       {/* Desktop Nav */}
       <div className='hidden lg:flex gap-5 items-center'>
-        <Link to='/dashboard'>
-          <Button className="bg-white text-black font-medium text-sm p-5 rounded-full hover:bg-white/90 cursor-pointer">
-            <i className="ri-speak-ai-line text-2xl mr-2"></i>Start Interview
-          </Button>
-        </Link>
-        <i className="ri-bard-line text-2xl" />
         <Link to='https://drona-ohmm.onrender.com/'>
           <Button className="text-white border-2 border-gray-600 font-medium text-sm p-5 rounded-full cursor-pointer hover:bg-black">
             <i className="ri-graduation-cap-line text-2xl mr-2"></i>Learning
