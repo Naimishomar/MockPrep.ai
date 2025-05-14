@@ -152,6 +152,9 @@ function Home() {
     }, 500); // Short delay
   };
 
+
+  
+
   return (
     <div className='mt-20 h-screen w-full bg-black/70 flex justify-center '>
       {(click && showInterview) ? (

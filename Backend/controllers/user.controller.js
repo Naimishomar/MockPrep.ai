@@ -116,9 +116,9 @@ exports.userLogin = async (req, res) => {
       });
       res.cookie("token", token, {
         httpOnly: true,
-  sameSite: "None",   // <-- Allows cross-site
-  secure: true,       // <-- Required for SameSite=None to work
-  maxAge: 5 * 24 * 60 * 60 * 1000,
+        sameSite: "None", // <-- Allows cross-site
+        secure: true, // <-- Required for SameSite=None to work
+        maxAge: 5 * 24 * 60 * 60 * 1000,
       });
       const userDetails = {
         _id: user._id,
@@ -217,5 +217,57 @@ exports.logout = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Logout failed", success: false });
+  }
+};
+exports.updatehistory = async (req, res) => {
+  try {
+    // 1. Extract token
+    const token = req.cookies.token || req.headers.authorization?.split(" ")[1];
+    if (!token) {
+      return res
+        .status(401)
+        .json({ message: "Unauthorized: No token provided", success: false });
+    }
+
+    // 2. Decode JWT
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const userId = decoded.userId;
+
+    // 3. Verify user exists
+    const user = await User.findById(userId);
+    if (!user) {
+      console.log(1);
+      return res
+        .status(404)
+        .json({ message: "User not found", success: false });
+    }
+
+    // 4. Find the  latest history entry for thisuser (or create new one if needed)
+    let history = await History.findOne({ user: userId }).sort({
+      dateTime: -1,
+    });
+
+    if (!history) {
+      history = new History({ user: userId });
+    }
+
+    // 5. Update fields from request body
+    const { conversation, confindence } = req.body;
+    if (conversation !== undefined) history.conversation = conversation;
+    if (Array.isArray(confindence)) history.confindence = confindence;
+
+    // 6. Refresh dateTime
+    history.dateTime = new Date();
+
+    await history.save();
+
+    return res.status(200).json({
+      message: "History updated successfully",
+      success: true,
+      data: history,
+    });
+  } catch (error) {
+    console.error("Update history error:", error);
+    return res.status(500).json({ message: "Server error", success: false });
   }
 };
