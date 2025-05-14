@@ -10,7 +10,7 @@ import img from '../assets/image-removebg-preview.png'
 
 function Header() {
   return (
-    <motion.div className='w-full h-20 bg-transparent/90 text-white flex items-center justify-between px-4 lg:px-8 fixed z-50'
+    <motion.div className='w-full h-20 bg-gradient-to-b from-black via-black/80 to-transparent text-white flex items-center justify-between px-4 lg:px-8 fixed z-50'
       initial={{ opacity: 0, x: 200 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}

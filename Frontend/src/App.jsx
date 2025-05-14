@@ -13,7 +13,6 @@ import Profile from './components/Profile';
 import HomeOutlet from './components/HomeOutlet';
 import { Toaster } from "sonner";
 
-// ✅ Auth Redirect Logic for "/"
 function AuthRedirect() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -58,7 +57,7 @@ function AuthRedirect() {
 function App() {
   return (
     <BrowserRouter>
-      <AuthRedirect></AuthRedirect>
+      <AuthRedirect />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />

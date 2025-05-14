@@ -6,6 +6,7 @@ import Footer from "./Footer";
 function Layout() {
   const location = useLocation();
   const hideFooter = location.pathname.startsWith('/dashboard');
+  const hideLoginFooter = location.pathname.startsWith('/login');
 
   
   
@@ -13,7 +14,7 @@ function Layout() {
     <div className="bg-black text-white overflow-x-hidden">
         <Header/>
         <Outlet/>
-        {!hideFooter && <Footer />}
+        {!hideFooter || !hideLoginFooter && <Footer />}
     </div>
   )
 }

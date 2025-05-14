@@ -1,5 +1,5 @@
 const User = require("../models/user.model.js");
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const { customAlphabet } = require("nanoid");
@@ -100,7 +100,7 @@ exports.userLogin = async (req, res) => {
       const user = await User.findOne({ username });
       if (!user) {
         return res.status(401).json({
-          message: "No account found with this email",
+          message: "No account found with this username",
           success: false,
         });
       }

@@ -3,25 +3,15 @@ import Interview from './Interview';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
-import * as tts from '@diffusionstudio/vits-web';
-// Import pdfjs-dist
-import * as pdfjsLib from 'pdfjs-dist';
-
-// --- Configure the PDF.js worker ---
-// Adjust the path based on where you copied the worker file in your public folder
-// If using Vite or CRA, they might have specific ways to handle static assets.
-// This example assumes it's directly accessible at the root.
-pdfjsLib.GlobalWorkerOptions.workerSrc = `/pdf.worker.mjs`; // Or '/pdf.worker.js'
+// import * as tts from '@diffusionstudio/vits-web';
+// import * as pdfjsLib from 'pdfjs-dist';
+// pdfjsLib.GlobalWorkerOptions.workerSrc = `/pdf.worker.mjs`;
 
 function Home() {
   const [click, setClick] = useState(false);
-  // State for the original file object (optional, maybe for displaying filename)
   const [resumeFile, setResumeFile] = useState(null);
-  // State to hold the extracted text content of the resume
   const [resumeText, setResumeText] = useState('');
-  // State to indicate if text extraction is in progress
   const [isExtracting, setIsExtracting] = useState(false);
-
   const [experience, setExperience] = useState("Fresher");
   const [duration, setDuration] = useState("5");
   const [skill, setSkill] = useState('Frontend Developer');
@@ -139,14 +129,7 @@ function Home() {
         alert("Please wait, resume text is being extracted.");
         return;
      }
-     // You might add a check here if resumeText is empty and it's mandatory
-     // if (!resumeText && /* some condition indicating resume is mandatory */) {
-     //    alert("Please upload a resume first.");
-     //    return;
-     // }
 
-    // Using setTimeout for a slight delay, similar to original setInterval logic
-    // but only runs once. If you need repeated checks, use setInterval.
     setTimeout(() => {
       setClick(true);
     }, 500); // Short delay
@@ -169,7 +152,7 @@ function Home() {
         />
       ) : (
         <>
-          <div>
+          <div className='mx-5'>
             {/* Rest of your Instructions UI */}
             <i className="ri-bar-chart-box-ai-line text-5xl absolute rotate-12 text-blue-400 top-45 left-30 iconMove"></i>
             <i className="ri-presentation-fill text-5xl absolute rotate-12 text-pink-400 top-25 right-30 iconMove"></i>
@@ -191,7 +174,7 @@ function Home() {
                     <img className='w-13 invert' src="/image-removebg-preview.png" alt="logo" />
                     <h1 className='text-2xl font-bold'>MockPrep</h1>
                   </DialogTitle>
-                  <DialogDescription className="flex flex-col space-y-3 mt-5">
+                  <DialogDescription className="flex flex-col space-y-3 mt-0">
                     {/* Skill Selector */}
                     <div>
                        <label htmlFor="skillSelect">Choose your skill:</label>
@@ -263,11 +246,6 @@ function Home() {
                        </select>
                      </div>
                     <Button className="bg-blue-500 py-5 hover:bg-blue-600 cursor-pointer disabled:opacity-50" onClick={start} disabled={isExtracting}>Start Now<i className="ri-arrow-right-line text-2xl"></i></Button>
-                    <div className='flex justify-center items-center mt-2 gap-8'>
-                      <Link to="#"><i className="ri-twitter-x-fill text-2xl hover:text-blue-500"></i></Link>
-                      <Link to="#"><i className="ri-linkedin-fill text-2xl hover:text-blue-600"></i></Link>
-                      <Link to="#"><i className="ri-instagram-line text-2xl hover:text-pink-500"></i></Link>
-                    </div>
                   </DialogDescription>
                 </DialogHeader>
               </DialogContent>
