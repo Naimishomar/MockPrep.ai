@@ -4,6 +4,7 @@ import {motion} from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Particles from './reactBitsComponents/Particles';
 import FaqSimple from './FaqSimple';
+import Squares from './reactBitsComponents/Squares';
 
 function Dashboard() {
     const headingText = ["Learn smarter with AI","Start giving interviews","Get industry news","Build your resume","Get consult with mentors"];
@@ -22,83 +23,81 @@ function Dashboard() {
 
   return (
         <>
-        <motion.div className='h-screen w-full bg-black/70 relative animate flex flex-col justify-center items-center' initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} viewport={{ once: false, amount: 0.2 }}>
-                <div style={{ width: '100%', height: '600px', position: 'absolute' }}>
-                <Particles
-                    particleColors={['#ffffff', '#ffffff']}
-                    particleCount={200}
-                    particleSpread={10}
-                    speed={0.1}
-                    particleBaseSize={100}
-                    moveParticlesOnHover={true}
-                    alphaParticles={false}
-                    disableRotation={false}
-                />
-                </div>
+        <div style={{ width: '100%', height: '100%', position: 'absolute', zIndex: '0' }}>
+            <Squares 
+                speed={0.5} 
+                squareSize={40}
+                direction='diagonal'
+                borderColor='gray'
+                hoverFillColor='white'
+            />
+        </div>
+        <motion.div className='h-screen w-full bg-black/40 relative animate flex flex-col justify-center items-center' initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} viewport={{ once: false, amount: 0.2 }}>
                 <i className="ri-bar-chart-box-ai-line text-5xl absolute rotate-12 text-blue-400 top-45 left-30 iconMove"></i>
                 <i class="ri-presentation-fill text-5xl absolute rotate-12 text-pink-400 top-15 right-30 iconMove"></i>
                 <i class="ri-chat-voice-ai-fill text-5xl absolute rotate-12 text-yellow-400 bottom-35 right-40 iconMove"></i>
                 <div className="group text-center pt-30 cursor-pointer">
-                    <div className="text-8xl font-bold bg-gradient-to-bl from-[#ffffff] via-[#c0c0c0] to-[#000000] bg-clip-text text-transparent whitespace-nowrap transition-all duration-200 animate-pulse">
+                    <div className="text-8xl font-bold bg-gradient-to-bl from-[#ffffff] via-[#c0c0c0] to-[#000000] bg-clip-text text-transparent whitespace-nowrap transition-all duration-200 ">
                     {heading}</div>
                 </div>
                 <div className='flex justify-center'>
-                <div className='w-200 flex flex-col overflow-hidden'>
+                <div className='w-screen flex flex-col overflow-hidden'>
                     <div className='flex mt-8 whitespace-nowrap relative'>
-                        <div className='w-10 h-10 bg-gradient-to-r from-[#000000] via-[#111111] to-transparent absolute left-0 z-20'></div>
-                        <div className='w-20 h-10 bg-gradient-to-r from-transparent via-[#111111] to-[#000000] absolute right-0 z-20'></div>
+                        <div className='w-40 h-10 bg-gradient-to-r from-[#000000] via-[#111111] to-transparent absolute left-0 z-20'></div>
+                        <div className='w-40 h-10 bg-gradient-to-r from-transparent via-[#111111] to-[#000000] absolute right-0 z-20'></div>
                         <div className='flex slideRight gap-4'>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
                         </div>
                         <div className='flex slideRight gap-4'>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
                         </div>
                         <div className='flex slideRight gap-4'>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
                         </div>
                     </div>
                     <div className='flex mt-5 whitespace-nowrap relative'>
-                        <div className='w-10 h-10 bg-gradient-to-r from-[#000000] via-[#111111] to-transparent absolute left-0 z-20'></div>
+                        <div className='w-40 h-10 bg-gradient-to-r from-[#000000] via-[#111111] to-transparent absolute left-0 z-20'></div>
                         <div className='w-20 h-10 bg-gradient-to-r from-transparent via-[#111111] to-[#000000]  absolute right-0 z-20'></div>
                         <div className='flex slideLeft gap-4'>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
                         </div>
                         <div className='flex slideLeft gap-4'>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
                         </div>
                         <div className='flex slideLeft gap-4'>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
-                            <p className='bg-white/10 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
+                            <p className='bg-white/15 px-4 py-2 rounded-full'>Want Try Something</p>
                         </div>
                     </div>
                 </div>
                 </div>
                 <i class="ri-mouse-line absolute text-5xl left-[50%] bottom-0 translate-[-50%] cursor-pointer iconMove"></i>
         </motion.div>
-
+        
+        <div className='w-full h-20 bg-gradient-to-t from-black via-black/50 to-transparent fixed bottom-0 left-0 z-[100]'></div>
         <hr className='border-white/10' />
 
         <motion.div className='min-h-screen w-full flex flex-col md:flex-row justify-between animate bg-black/80' initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} viewport={{ once: false, amount: 0.2 }}>

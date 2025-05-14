@@ -171,7 +171,7 @@ function Home() {
                     <img className='w-13 invert' src="/image-removebg-preview.png" alt="logo" />
                     <h1 className='text-2xl font-bold'>MockPrep</h1>
                   </DialogTitle>
-                  <DialogDescription className="flex flex-col space-y-3 mt-5">
+                  <DialogDescription className="flex flex-col space-y-3 mt-0">
                     {/* Skill Selector */}
                     <div>
                        <label htmlFor="skillSelect">Choose your skill:</label>
@@ -243,11 +243,6 @@ function Home() {
                        </select>
                      </div>
                     <Button className="bg-blue-500 py-5 hover:bg-blue-600 cursor-pointer disabled:opacity-50" onClick={start} disabled={isExtracting}>Start Now<i className="ri-arrow-right-line text-2xl"></i></Button>
-                    <div className='flex justify-center items-center mt-2 gap-8'>
-                      <Link to="#"><i className="ri-twitter-x-fill text-2xl hover:text-blue-500"></i></Link>
-                      <Link to="#"><i className="ri-linkedin-fill text-2xl hover:text-blue-600"></i></Link>
-                      <Link to="#"><i className="ri-instagram-line text-2xl hover:text-pink-500"></i></Link>
-                    </div>
                   </DialogDescription>
                 </DialogHeader>
               </DialogContent>
