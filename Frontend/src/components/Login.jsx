@@ -70,11 +70,11 @@ function Login() {
   }
 
   return (
-    <div className="mt-20 w-full h-fit py-10 bg-black/80 flex justify-center items-center">
+    <div className="mt-20 w-full h-screen py-10 bg-black/80 flex justify-center items-center">
       <i class="ri-bar-chart-box-ai-line text-5xl fixed rotate-12 text-blue-400 top-45 left-30 iconMove"></i>
       <i class="ri-presentation-fill text-5xl fixed rotate-12 text-pink-400 top-15 right-30 iconMove"></i>
       <i class="ri-chat-voice-ai-fill text-5xl fixed rotate-12 text-yellow-400 bottom-35 right-60 iconMove"></i>
-      <div className="w-100 p-4 bg-white/10 rounded-xl bg-gradient-to-bl from-[#1a1a1a] via-[#2a2a2a] to-[#000000] shadow-2xl">
+      <div className="w-110 p-4 bg-white/10 rounded-xl bg-gradient-to-bl from-[#1a1a1a] via-[#2a2a2a] to-[#000000] shadow-2xl">
         <div className="flex justify-center items-center gap-2">
           <img
             src="/image-removebg-preview.png"
@@ -83,11 +83,11 @@ function Login() {
           />
           <p className="text-2xl font-semibold text-white/80 ">MockPrep</p>
         </div>
-        <h1 className="text-center text-2xl font-semibold m-5 text-white/80 ">
+        <h1 className="text-center text-2xl font-semibold mt-2 mb-3 text-white/80 ">
           Login
         </h1>
         <form onSubmit={userLogin}>
-          <div className="grid w-full max-w-sm items-center gap-1.5 my-3">
+          <div className="grid w-full items-center gap-1.5 my-3">
             <Label className="text-red-400">Username</Label>
             <Input
               type="text"
@@ -97,7 +97,7 @@ function Login() {
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          <div className="grid w-full max-w-sm items-center gap-1.5">
+          <div className="grid w-full items-center gap-1.5">
             <Label className="text-yellow-400">Password</Label>
             <Input
               type="password"
