@@ -14,7 +14,7 @@ function Layout() {
     <div className="bg-black text-white overflow-x-hidden">
         <Header/>
         <Outlet/>
-        {!hideFooter || !hideLoginFooter && <Footer />}
+        {!hideFooter && !hideLoginFooter && <Footer />}
     </div>
   )
 }

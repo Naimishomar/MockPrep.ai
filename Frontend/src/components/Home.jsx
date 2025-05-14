@@ -153,7 +153,7 @@ function Home() {
   };
 
   return (
-    <div className='mt-20 h-screen w-full bg-black/70 flex justify-center '>
+    <div className='mt-20 h-fit w-full bg-black/70 flex justify-center items-center mx-3'>
       {(click && showInterview) ? (
         <Interview
           skill={skill}
