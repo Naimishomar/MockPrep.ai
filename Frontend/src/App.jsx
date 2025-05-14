@@ -58,7 +58,7 @@ function AuthRedirect() {
 function App() {
   return (
     <BrowserRouter>
-      
+      <AuthRedirect></AuthRedirect>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
