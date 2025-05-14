@@ -1,5 +1,5 @@
 const User = require("../models/user.model.js");
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const { customAlphabet } = require("nanoid");
@@ -86,6 +86,8 @@ exports.userRegister = async (req, res) => {
 
 exports.verified = async (req, res) => {
   console.log("verified");
+  const token = req.cookies.token || req.headers.authorization?.split(" ")[1];
+  console.log(token);
   res.status(200).json({ success: true, message: "Token verified" });
 };
 
@@ -242,19 +244,13 @@ exports.updatehistory = async (req, res) => {
         .json({ message: "User not found", success: false });
     }
 
-    // 4. Find the  latest history entry for thisuser (or create new one if needed)
-    let history = await History.findOne({ user: userId }).sort({
-      dateTime: -1,
-    });
-
-    if (!history) {
-      history = new History({ user: userId });
-    }
+    history = new History({ user: userId });
 
     // 5. Update fields from request body
-    const { conversation, confindence } = req.body;
+    const { conversation, confindence, role } = req.body;
     if (conversation !== undefined) history.conversation = conversation;
     if (Array.isArray(confindence)) history.confindence = confindence;
+    history.role = role || "Role Not Specified";
 
     // 6. Refresh dateTime
     history.dateTime = new Date();

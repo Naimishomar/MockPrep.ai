@@ -229,7 +229,7 @@ function Interview({ skill, experience, resume, duration, voice }) {
 
   async function updateUserHistory(updateData) {
   try {
-    const response = await fetch('/history', {
+    const response = await fetch('http://localhost:8000/history', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -254,6 +254,7 @@ function Interview({ skill, experience, resume, duration, voice }) {
     const updatedata = {
       conversation: conversationHistory,
       confidence: confidence,
+      role: skill,
     }
     updateUserHistory(updatedata)
     setShowCompletionModal(false);

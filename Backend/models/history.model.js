@@ -12,12 +12,16 @@ const historySchema = new mongoose.Schema({
     required: true,
   },
   conversation: {
-    type: String,
+    type: Object,
     required: false,
   },
   confindence: {
     type: [Number],
     required: false,
+  },
+  role: {
+    type: String,
+    required: true,
   },
 });
 
