@@ -21,11 +21,11 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        credentials: "include",
         body: JSON.stringify({
           username: Username,
           password: Password,
         }),
+        credentials: "include",
       });
       const data = await response.json(); 
       const token = data.token;

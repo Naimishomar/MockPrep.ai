@@ -116,8 +116,9 @@ exports.userLogin = async (req, res) => {
       });
       res.cookie("token", token, {
         httpOnly: true,
-        sameSite: "strict",
-        maxAge: 5 * 24 * 60 * 60 * 1000,
+  sameSite: "None",   // <-- Allows cross-site
+  secure: true,       // <-- Required for SameSite=None to work
+  maxAge: 5 * 24 * 60 * 60 * 1000,
       });
       const userDetails = {
         _id: user._id,
