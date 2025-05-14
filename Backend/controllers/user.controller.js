@@ -116,8 +116,9 @@ exports.userLogin = async (req, res) => {
       });
       res.cookie("token", token, {
         httpOnly: true,
-        sameSite: "strict",
-        maxAge: 5 * 24 * 60 * 60 * 1000,
+  sameSite: "None",   // <-- Allows cross-site
+  secure: true,       // <-- Required for SameSite=None to work
+  maxAge: 5 * 24 * 60 * 60 * 1000,
       });
       const userDetails = {
         _id: user._id,
@@ -207,9 +208,14 @@ exports.history = async (req, res) => {
 exports.logout = async (req, res) => {
   try {
     return res
-      .cookie("cookie", "", { maxAge: 0 })
-      .json({ message: `Logged out successfully`, success: true });
+      .clearCookie("token", {
+        httpOnly: true,
+        secure: true, // Make sure this matches how the cookie was originally set
+        sameSite: "None", // Needed for cross-site cookies
+      })
+      .json({ message: "Logged out successfully", success: true });
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    res.status(500).json({ message: "Logout failed", success: false });
   }
 };

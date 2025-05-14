@@ -23,7 +23,7 @@ app.use("/", userRoute);
 app.use("/api/payment", PaymentRoute);
 app.use("/", geminiRoute);
 
-app.listen(PORT, () => {
+app.listen(PORT, "127.0.0.1", () => {
   console.log("Server is listening on PORT", PORT);
   connectDb();
 });

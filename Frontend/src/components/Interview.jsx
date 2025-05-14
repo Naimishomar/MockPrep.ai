@@ -155,13 +155,12 @@ function Interview({ skill, experience, resume, duration }) {
       parts: [{ text: turn.text }],
     }));
 
-    const API_KEY = "AIzaSyDmRdVGppLT6FBq3ouKzk1YCxWNdAQTx0s";
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
-    const response = await fetch(url, {
+    const response = await fetch("http://localhost:8000/gemini", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ contents }),
+      include: "credentials"
     });
 
     const data = await response.json();
