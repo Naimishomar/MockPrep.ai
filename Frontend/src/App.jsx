@@ -11,6 +11,7 @@ import News from './components/News';
 import SubscriptionPlans from './components/Subscription';
 import Profile from './components/Profile';
 import HomeOutlet from './components/HomeOutlet';
+import RouteLoader from './components/RouteLoader';
 import { Toaster } from "sonner";
 
 function AuthRedirect() {
@@ -58,6 +59,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthRedirect />
+      <RouteLoader />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
