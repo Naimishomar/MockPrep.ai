@@ -47,5 +47,5 @@ MockPrep.ai is a real-time, voice-driven interview simulator designed to help yo
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/your-username/mockprep.ai.git
+   git clone https://github.com/Naimishomar/mockprep.ai.git
    cd mockprep.ai
